@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-kafka-consumer
+  namespace: kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-kafka-consumer
+  template:
+    metadata:
+      labels:
+        app: go-kafka-consumer
+    spec:
+      containers:
+        - name: consumer
+          image: kafka-consumer-go:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: kafka-cluster-kafka-bootstrap.kafka:9092
+            - name: TOPIC
+              value: my-topic
+            - name: GROUP_ID
+              value: go-consumer-group
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
