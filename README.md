@@ -1,5 +1,12 @@
 # kafka-tutorial
 
+## Pre-requisites 
+- docker
+- kubectl
+- kind
+
+## Getting Started
+
 1. Create cluster
 
    ```
