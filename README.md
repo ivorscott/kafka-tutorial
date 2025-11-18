@@ -1,6 +1,6 @@
 # kafka-tutorial
 
-## Pre-requisites 
+## Prerequisites 
 - docker
 - kubectl
 - kind
