@@ -18,9 +18,23 @@
    Set kubectl context to "kind-kind"
    You can now use your cluster with:
 
+   $ kind get clusters
+   kind
+
+   $ kubectl config get-contexts                                                                   
+   CURRENT   NAME             CLUSTER          AUTHINFO         NAMESPACE
+            docker-desktop   docker-desktop   docker-desktop   
+   *         kind-kind        kind-kind        kind-kind   
+
    $ kubectl cluster-info --context kind-kind
 
+   Kubernetes control plane is running at https://127.0.0.1:59570
+   CoreDNS is running at https://127.0.0.1:59570/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+   To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
    Have a nice day! 👋
+
    $ kubectl get nodes           
       NAME                  STATUS   ROLES           AGE   VERSION
       kind-control-plane    Ready    control-plane   48m   v1.34.0
@@ -171,3 +185,6 @@
       namespace "kafka" deleted
       ```
 
+## References
+- https://kind.sigs.k8s.io/docs/user/quick-start/
+- https://strimzi.io/quickstarts/
